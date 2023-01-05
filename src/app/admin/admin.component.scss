@@ -1,0 +1,150 @@
+.admin-container {
+  min-height: 100vh;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  table {
+    width: 80vw;
+    text-align: left;
+    word-break: break-all;
+    border-spacing: 0 !important;
+
+    th,
+    td {
+      padding: 0 1.5rem;
+      padding-right: 0;
+      border-bottom: 0.01rem solid #dedede;
+
+      .edit-input {
+        padding: 10px 20px;
+        box-shadow: none;
+        background: transparent;
+        outline: none;
+        border-radius: 10px;
+        border: 0.3px solid #837d7d;
+      }
+
+      .disabled {
+        &-input {
+          border: none;
+          box-shadow: none;
+          background-color: transparent;
+          padding: 10px 15px;
+          padding-left: 0;
+        }
+      }
+    }
+
+    th {
+      padding: 0.75rem 1.5rem;
+      padding-right: 0;
+    }
+
+    input {
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    input:not([type="checkbox"]) {
+      border-bottom: 0.01rem solid #dedede;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .edit,
+      .delete {
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+      }
+
+      .delete {
+        color: red;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  form {
+    width: 100%;
+    margin-bottom: 2%;
+    border: 1px solid #dedede;
+
+    .search {
+      width: 100%;
+      color: #dedede;
+      padding: 0.3rem 0.7rem;
+      border: none;
+    }
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .btn-danger {
+      width: 15%;
+      margin-top: 1rem;
+      padding: 1rem 1.5rem;
+      box-shadow: none;
+      border: none;
+      border-radius: 25px;
+      color: #fff;
+      background-color: rgb(193, 94, 94);
+    }
+  }
+
+  .pagination {
+    display: flex;
+    min-width: 40%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+
+    .first,
+    .prev,
+    .page-number,
+    .next,
+    .last {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem;
+      width: 20px;
+      height: 20px;
+      color: #fff;
+      border-radius: 50%;
+      box-shadow: none;
+      background-color: #468bd5;
+      border: 0.1rem solid #468bd5;
+    }
+
+    .first.disabled,
+    .prev.disabled,
+    .next.disabled,
+    .last.disabled {
+      color: #837d7d;
+      background-color: #dedede;
+      border-color: #837d7d;
+    }
+
+    .first.active,
+    .prev.active,
+    .page-number.active,
+    .next.active,
+    .last.active {
+      color: #000;
+      background-color: #fff;
+      border: 0.1rem solid #468bd5;
+    }
+  }
+}

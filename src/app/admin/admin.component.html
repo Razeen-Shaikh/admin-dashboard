@@ -1,0 +1,66 @@
+<div class="admin-container">
+    <form>
+        <input type="text" class="search" placeholder="Search by name, email or role">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th><input (click)="selectAll()" type="checkbox"></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let member of display_members; let i = index">
+                <td><input (click)="select(i)" type="checkbox"></td>
+                <td>
+                    <input class="name disabled-input" value="{{member.name}}" disabled="true"
+                        (keydown)="saveChange(i, $event)" />
+                </td>
+                <td>
+                    <input class="email disabled-input" value="{{member.email}}" disabled="true"
+                        (keydown)="saveChange(i, $event)" />
+                </td>
+                <td>
+                    <input class="role disabled-input" value="{{member.role}}" disabled="true"
+                        (keydown)="saveChange(i, $event)" />
+                </td>
+                <td>
+                    <div class="actions">
+                        <button class="edit" (click)="editMember(i)">
+                            <fa-icon [icon]="edit"></fa-icon>
+                        </button>
+                        <button class="delete" (click)="deleteMember(i)">
+                            <fa-icon [icon]="delete"></fa-icon>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <button class="btn-danger" (click)="deleteSelected()">Delete Selected</button>
+        <div class="pagination" #page>
+            <button [disabled]="is_first_page" [ngClass]="is_first_page ? 'disabled' : ''" class="first"
+                (click)="firstPage($event)">
+                <fa-icon [icon]="first"></fa-icon>
+            </button>
+            <button [disabled]="is_first_page" [ngClass]="is_first_page ? 'disabled' : ''" class="prev"
+                (click)="prevPage($event)">
+                <fa-icon [icon]="prev"></fa-icon>
+            </button>
+            <button class="page-number" *ngFor='let in of counter(len/10); let i = index'
+                (click)="activePage($event, i)">{{i+1}}</button>
+            <button [disabled]="is_last_page" [ngClass]="is_last_page ? 'disabled' : ''" class="next"
+                (click)="nextPage($event)">
+                <fa-icon [icon]="next"></fa-icon>
+            </button>
+            <button [disabled]="is_last_page" [ngClass]="is_last_page ? 'disabled' : ''" class="last"
+                (click)="lastPage($event)">
+                <fa-icon [icon]="last"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>
